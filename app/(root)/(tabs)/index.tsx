@@ -1,8 +1,6 @@
 import { Link } from "expo-router";
 import { Text, View } from "react-native";
 
-import "@/app/global.css";
-
 export default function Index() {
   return (
     <View
