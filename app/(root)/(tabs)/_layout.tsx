@@ -21,6 +21,7 @@ const TabLayout = () => {
         name="index"
         options={{
           title: "Home",
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <TabIcon focused={focused} icon={icons.home} title="Home" />
           ),
