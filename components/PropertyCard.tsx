@@ -22,7 +22,7 @@ interface Props {
 const PropertyCard: React.FC<Props> = ({ item, onPress }) => {
   return (
     <TouchableOpacity
-      className="flex-1 w-full px-3 py-4 rounded-lg bg-white shadow-lg shadow-black-100/70 relative"
+      className="flex-1 w-full px-3 py-4 rounded-lg bg-white shadow-lg shadow-black-100/70 relative mt-4"
       onPress={onPress}
     >
       <View className="flex flex-row items-center absolute px-2 top-5 right-5 bg-white/90 p-1 rounded-full z-50">

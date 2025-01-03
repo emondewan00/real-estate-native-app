@@ -1,4 +1,10 @@
-import { View, Text, Image, ImageSourcePropType } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  ImageSourcePropType,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
@@ -15,7 +21,7 @@ type Props = {
 
 const FeatureCard: React.FC<Props> = ({ item }) => {
   return (
-    <View className="h-80 w-60 rounded-2xl relative ">
+    <TouchableOpacity className="h-80 w-60 rounded-2xl relative ">
       <Image source={item.image} className="flex-1 rounded-3xl size-full" />
       <Image
         source={images.cardGradient}
@@ -46,7 +52,7 @@ const FeatureCard: React.FC<Props> = ({ item }) => {
           <Image source={icons.heart} className="size-5" />
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
