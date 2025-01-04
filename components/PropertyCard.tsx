@@ -10,9 +10,9 @@ import images from "@/constants/images";
 import icons from "@/constants/icons";
 interface Props {
   item: {
-    name: string;
-    address: string;
-    price: number;
+    title: string;
+    location: string;
+    price: string;
     rating: number;
     image: ImageSourcePropType;
   };
@@ -36,10 +36,10 @@ const PropertyCard: React.FC<Props> = ({ item, onPress }) => {
 
       <View className="flex flex-col mt-2">
         <Text className="text-base font-rubik-bold text-black-300">
-          {item.name}
+          {item.title}
         </Text>
         <Text className="text-xs font-rubik text-black-100">
-          {item.address}
+          {item.location}
         </Text>
 
         <View className="flex flex-row items-center justify-between mt-2">

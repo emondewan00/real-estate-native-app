@@ -4,7 +4,7 @@ import ProfileWithBellH from "@/components/ProfileWithBellH";
 import PropertyCard from "@/components/PropertyCard";
 import Search from "@/components/Search";
 import SectionTitle from "@/components/SectionTitle";
-import { categories, featuredCards } from "@/constants/data";
+import { cards, categories, featuredCards } from "@/constants/data";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
 import { Link } from "expo-router";
@@ -24,18 +24,9 @@ export default function Index() {
   return (
     <SafeAreaView className="bg-white h-full">
       <FlatList
-        data={[1, 2, 3, 4]}
-        renderItem={({ item }) => (
-          <PropertyCard
-            key={item}
-            item={{
-              address: "hello address",
-              price: 1,
-              image: images.japan,
-              name: "hello name",
-              rating: 5,
-            }}
-          />
+        data={cards}
+        renderItem={({ item, index }) => (
+          <PropertyCard key={index} item={item} />
         )}
         showsVerticalScrollIndicator={false}
         numColumns={2}

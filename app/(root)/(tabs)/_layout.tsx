@@ -31,6 +31,7 @@ const TabLayout = () => {
         name="explore"
         options={{
           title: "Explore",
+          headerShown: false,
           tabBarIcon: ({ focused }) => (
             <TabIcon focused={focused} icon={icons.search} title="Explore" />
           ),
