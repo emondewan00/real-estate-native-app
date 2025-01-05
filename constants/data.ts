@@ -163,3 +163,24 @@ export const gallery = [
     image: images.japan,
   },
 ];
+
+export const roomDimensions = [
+  {
+    id: 1,
+    icon: icons.bed,
+    title: "Beds",
+    value: 2,
+  },
+  {
+    id: 2,
+    icon: icons.bath,
+    title: "Baths",
+    value: 1,
+  },
+  {
+    id: 3,
+    icon: icons.area,
+    title: "sqft",
+    value: 2000,
+  },
+];

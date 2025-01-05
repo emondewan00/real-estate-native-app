@@ -7,7 +7,7 @@ import SectionTitle from "@/components/SectionTitle";
 import { cards, categories, featuredCards } from "@/constants/data";
 import icons from "@/constants/icons";
 import images from "@/constants/images";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import {
   FlatList,
   Image,
@@ -26,7 +26,11 @@ export default function Index() {
       <FlatList
         data={cards}
         renderItem={({ item, index }) => (
-          <PropertyCard key={index} item={item} />
+          <PropertyCard
+            key={index}
+            item={item}
+            onPress={() => router.push(`/properties/${index}`)}
+          />
         )}
         showsVerticalScrollIndicator={false}
         numColumns={2}

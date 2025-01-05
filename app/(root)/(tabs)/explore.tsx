@@ -5,6 +5,7 @@ import Search from "@/components/Search";
 import { cards } from "@/constants/data";
 import PropertyCard from "@/components/PropertyCard";
 import icons from "@/constants/icons";
+import { router } from "expo-router";
 
 const Explore = () => {
   return (
@@ -13,7 +14,11 @@ const Explore = () => {
         <FlatList
           data={cards}
           renderItem={({ item, index }) => (
-            <PropertyCard key={index} item={item} />
+            <PropertyCard
+              key={index}
+              item={item}
+              onPress={() => router.push(`/properties/${index}`)}
+            />
           )}
           showsVerticalScrollIndicator={false}
           numColumns={2}
