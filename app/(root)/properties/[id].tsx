@@ -5,6 +5,7 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
+  Modal,
 } from "react-native";
 import React from "react";
 import { useLocalSearchParams } from "expo-router";
@@ -12,12 +13,14 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import icons from "@/constants/icons";
 import { roomDimensions } from "@/constants/data";
 import images from "@/constants/images";
+import Review from "@/components/Review";
+import BookNowWithPrice from "@/components/BookNowWithPrice";
 
 const Property = () => {
   const { id } = useLocalSearchParams();
   return (
     <SafeAreaView className="bg-white h-full">
-      <ScrollView className="px-5">
+      <ScrollView className="px-5" showsVerticalScrollIndicator={false}>
         <View>
           <View>
             <Text className="font-rubik-bold text-2xl text-black-300 mb-4 mt-6">
@@ -127,7 +130,38 @@ const Property = () => {
                 ))}
             </View>
 
-            <View className="my-7 ">
+            <View className="my-7">
+              <Text className="text-black-300 font-rubik-semibold text-xl mb-5">
+                Gallery
+              </Text>
+              <View className="flex flex-row gap-x-4 ">
+                <Image
+                  source={images.gallery1}
+                  resizeMode="cover"
+                  className="size-[118px] rounded-xl"
+                />
+                <Image
+                  source={images.gallery2}
+                  resizeMode="cover"
+                  className="size-[118px] rounded-xl"
+                />
+
+                <View className="relative">
+                  <Image
+                    source={images.gallery3}
+                    resizeMode="cover"
+                    className="size-[118px] rounded-xl"
+                  />
+                  <View className="bg-black/35 size-[118px] rounded-xl absolute flex items-center justify-center">
+                    <Text className="font-rubik-bold text-2xl text-white">
+                      20+
+                    </Text>
+                  </View>
+                </View>
+              </View>
+            </View>
+
+            <View className="mb-7 ">
               <Text className="text-black-300 font-rubik-semibold text-xl">
                 Location
               </Text>
@@ -144,74 +178,11 @@ const Property = () => {
               />
             </View>
 
-            <View>
-              <View className="flex flex-row justify-between items-center">
-                <View className="flex flex-row gap-x-2">
-                  <Image source={icons.star} />
-                  <Text className="text-black-300 font-rubik-bold text-xl">
-                    4.8 (1,275 reviews)
-                  </Text>
-                </View>
-                <Text className="text-primary-300 font-rubik-semibold text-base">
-                  See All
-                </Text>
-              </View>
-              <View className="flex flex-row items-center gap-x-4 mt-5 mb-3">
-                <Image
-                  source={images.avatar}
-                  className="size-10 rounded-full"
-                  resizeMode="contain"
-                />
-                <Text className="text-black-300 text-lg font-rubik-semibold">
-                  Charolette Hanlin
-                </Text>
-              </View>
-              <Text className="text-base font-rubik text-black-200">
-                The apartment is very clean and modern. I really like the
-                interior design. Looks like I'll feel at home 😍
-              </Text>
-              <View className="flex flex-row justify-between items-center mt-3">
-                <View className="flex flex-row gap-x-2">
-                  <Image
-                    source={icons.heart}
-                    className="size-5 "
-                    // tintColor={"blue"}
-                    alt="hart icon"
-                  />
-                  <Text className="text-black-300 font-rubik-semibold">
-                    938
-                  </Text>
-                </View>
-                <Text className="text-black-200 font-rubik text-base">
-                  6 days ago
-                </Text>
-              </View>
-            </View>
+            <Review />
           </View>
         </View>
       </ScrollView>
-
-      <View className=" bg-white w-full rounded-t-2xl border-t border-primary-200 p-7">
-        <View className="flex flex-row items-center justify-between gap-10">
-          <View className="flex flex-col items-start">
-            <Text className="text-black-200 text-xs font-rubik-medium">
-              Price
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-primary-300 text-start text-2xl font-rubik-bold"
-            >
-              $100
-            </Text>
-          </View>
-
-          <TouchableOpacity className="flex-1 flex flex-row items-center justify-center bg-primary-300 py-3 rounded-full shadow-md shadow-zinc-400">
-            <Text className="text-white text-lg text-center font-rubik-bold">
-              Book Now
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <BookNowWithPrice />
     </SafeAreaView>
   );
 };
