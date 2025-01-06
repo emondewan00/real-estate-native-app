@@ -3,9 +3,9 @@ import React from "react";
 import Filter from "@/components/Filter";
 import Search from "@/components/Search";
 import { cards } from "@/constants/data";
-import PropertyCard from "@/components/PropertyCard";
 import icons from "@/constants/icons";
 import { router } from "expo-router";
+import PropertyCardHorizontal from "@/components/PropertyCardHorizontal";
 
 const Explore = () => {
   return (
@@ -14,16 +14,16 @@ const Explore = () => {
         <FlatList
           data={cards}
           renderItem={({ item, index }) => (
-            <PropertyCard
+            <PropertyCardHorizontal
               key={index}
               item={item}
               onPress={() => router.push(`/properties/${index}`)}
             />
           )}
           showsVerticalScrollIndicator={false}
-          numColumns={2}
+          // numColumns={1}
           contentContainerClassName="pb-32 px-5 "
-          columnWrapperClassName="gap-4"
+          // columnWrapperClassName="gap-4"
           ListHeaderComponent={
             <View>
               <View className="flex flex-row justify-between mt-4 mb-2 h-11 items-center">
