@@ -6,9 +6,11 @@ import {
   Image,
   TouchableOpacity,
   Modal,
+  Platform,
+  Dimensions,
 } from "react-native";
 import React from "react";
-import { useLocalSearchParams } from "expo-router";
+import { router } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import icons from "@/constants/icons";
 import { roomDimensions } from "@/constants/data";
@@ -17,11 +19,47 @@ import Review from "@/components/Review";
 import BookNowWithPrice from "@/components/BookNowWithPrice";
 
 const Property = () => {
-  const { id } = useLocalSearchParams();
+  const windowHeight = Dimensions.get("window").height;
   return (
     <SafeAreaView className="bg-white h-full">
-      <ScrollView className="px-5" showsVerticalScrollIndicator={false}>
-        <View>
+      <ScrollView  showsVerticalScrollIndicator={false}>
+        <View className="relative w-full" style={{ height: windowHeight / 2 }}>
+          <Image
+            source={images.japan}
+            className="size-full"
+            resizeMode="cover"
+          />
+          <Image
+            source={images.whiteGradient}
+            className="absolute top-0 w-full z-40"
+          />
+
+          <View
+            className="z-50 absolute inset-x-7"
+            style={{
+              top: Platform.OS === "ios" ? 70 : 20,
+            }}
+          >
+            <View className="flex flex-row items-center w-full justify-between">
+              <TouchableOpacity
+                onPress={() => router.back()}
+                className="flex flex-row bg-primary-200 rounded-full size-11 items-center justify-center"
+              >
+                <Image source={icons.backArrow} className="size-5" />
+              </TouchableOpacity>
+
+              <View className="flex flex-row items-center gap-3">
+                <Image
+                  source={icons.heart}
+                  className="size-7"
+                  tintColor={"#191D31"}
+                />
+                <Image source={icons.send} className="size-7" />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View className="px-5">
           <View>
             <Text className="font-rubik-bold text-2xl text-black-300 mb-4 mt-6">
               Modernica Apartment
